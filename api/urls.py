@@ -2,10 +2,13 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from courts.api import CourtViewSet
+
 from rest_framework import serializers, viewsets, routers
 
 # Routers provide a way of automatically determining the URL conf.
 router = routers.DefaultRouter()
+router.register(r'court', CourtViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
