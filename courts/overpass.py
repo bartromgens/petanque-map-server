@@ -21,14 +21,14 @@ def get_courts_utrecht(responseformat='json'):
 
 def get_courts_nl(responseformat='json'):
     query = '''
-    (area[id="3602323309"];)->.searchArea;
+    (area(3602323309);)->.searchArea;
     (
         node["sport" = "boules"](area.searchArea);
         way["sport" = "boules"](area.searchArea);
         relation["sport" = "boules"](area.searchArea);
     )
     '''
-    return api.get(query, responseformat=responseformat)
+    return api.get(query, responseformat=responseformat, verbosity='center')
 
 
 def get_node(node_id, responseformat='json'):

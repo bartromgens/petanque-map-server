@@ -9,6 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         response_json = overpass.get_courts_utrecht(responseformat='json')
+        # response_json = overpass.get_courts_nl(responseformat='json')
         # response_geojson = overpass.get_courts_utrecht(responseformat='geojson')
         # print(response_json)
         elements = response_json["elements"]
