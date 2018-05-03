@@ -11,6 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INSTALLED_APPS = [
     'api',
     'courts',
+    'rest_framework',
     'registration',
     'dbbackup',
     'django_cron',
@@ -96,6 +97,14 @@ AUTHENTICATION_BACKENDS = ['django-dual-authentication.backends.DualAuthenticati
 # You can authenticate your users by 'username', 'email', 'both'. Default: 'both'.
 AUTHENTICATION_METHOD = 'both'
 
+# django-rest-framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Local settings
 # Allow any settings to be defined in local_settings.py which should be

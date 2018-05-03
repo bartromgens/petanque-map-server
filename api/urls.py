@@ -1,11 +1,15 @@
 
 from django.conf.urls import url, include
+from django.contrib import admin
 
-from django.views.generic import TemplateView
+from rest_framework import serializers, viewsets, routers
 
+# Routers provide a way of automatically determining the URL conf.
+router = routers.DefaultRouter()
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='api/index.html'), name='homepage'),
+    url(r'^', include(router.urls)),
+    url(r'^admin/', admin.site.urls),
 ]
 
 
