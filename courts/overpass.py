@@ -9,17 +9,17 @@ import overpass
 api = overpass.API(timeout=25)
 
 
-def get_courts_utrecht():
+def get_courts_utrecht(responseformat='json'):
     query = '''(
         node["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
         way["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
         relation["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
     )   
     '''
-    return api.get(query)
+    return api.get(query, responseformat=responseformat)
 
 
-def get_courts_nl():
+def get_courts_nl(responseformat='json'):
     query = '''
     (area[id="3602323309"];)->.searchArea;
     (
@@ -28,14 +28,14 @@ def get_courts_nl():
         relation["sport" = "boules"](area.searchArea);
     )
     '''
-    return api.get(query)
+    return api.get(query, responseformat=responseformat)
 
 
 def get_country_area_id():
     query = '''
         (area["ISO3166-1"="NL"];)
     '''
-    return api.get(query)
+    return api.get(query, responseformat='json')
 
 
 def get_api_status():
