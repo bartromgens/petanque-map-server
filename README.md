@@ -65,9 +65,9 @@ The website is now available at http://127.0.0.1:8000 and admin http://127.0.0.1
 
 #### local_settings.py
 
-The local settings are defined in `website/local_settings.py`. 
+The local settings are defined in `api/local_settings.py`.
 These are not under version control and you are free change these for your personal needs.
-This is also the place for secret settings. An example, on which this file is based, is found in `website/local_settings_example.py`.
+This is also the place for secret settings. An example, on which this file is based, is found in `api/local_settings_example.py`.
 
 ## Testing
 
