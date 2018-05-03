@@ -30,12 +30,13 @@ class Command(BaseCommand):
             print(feature['geometry']['coordinates'])
         print('features found', len(features))
 
-        for id, property in court_properties.items():
+        for osm_id, property in court_properties.items():
             print(property)
-            Court.objects.filter(osm_id=id).delete()
-            Court.objects.create(
-                osm_id=id,
-                osm_type=property['osm_type'],
-                lon=property['lon'],
-                lat=property['lat']
+            Court.objects.update_or_create(
+                osm_id=osm_id,
+                defaults={
+                    "osm_type": property['osm_type'],
+                    "lon": property['lon'],
+                    "lat": property['lat'],
+                }
             )
