@@ -16,7 +16,7 @@ def get_courts_utrecht(responseformat='json'):
         relation["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
     )   
     '''
-    return api.get(query, responseformat=responseformat)
+    return api.get(query, responseformat=responseformat, verbosity='center')  # use verbosity = geom to get way geometry in geojson
 
 
 def get_courts_nl(responseformat='json'):
@@ -29,6 +29,16 @@ def get_courts_nl(responseformat='json'):
     )
     '''
     return api.get(query, responseformat=responseformat)
+
+
+def get_node(node_id, responseformat='json'):
+    query = '(node(' + str(node_id) + ');)'
+    return api.get(query, responseformat=responseformat)
+
+
+def get_node_coordinates(node_id):
+    node = get_node(node_id)
+    return [node['elements'][0]['lon'], node['elements'][0]['lat']]
 
 
 def get_country_area_id():
