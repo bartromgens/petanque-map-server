@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from terrain.models import Terrain
 
+
 class TerrainAdmin(admin.ModelAdmin):
     list_display = (
         'id',
