@@ -11,7 +11,7 @@ router = routers.DefaultRouter()
 router.register(r'terrain', TerrainViewSet)
 
 urlpatterns = [
-    url(r'^/', include(router.urls)),
+    url(r'^$', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 ]
 
