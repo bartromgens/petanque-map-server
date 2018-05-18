@@ -11,7 +11,7 @@ router = routers.DefaultRouter()
 router.register(r'court', CourtViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 ]
 
