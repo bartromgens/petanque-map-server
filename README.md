@@ -1,4 +1,4 @@
-# petanque-courts-server
+# petanque-map-server
 
 TODO: description
 
@@ -8,8 +8,8 @@ Requires Python 3.4+ and Django 2.0+
 
 Get the code and enter the project directory,
 ```
-git clone https://github.com/bartromgens/petanque-courts-server.git
-cd petanque-courts-server
+git clone https://github.com/bartromgens/petanque-map-server.git
+cd petanque-map-server
 ```
 
 Install dependencies that you will need,

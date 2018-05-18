@@ -1,5 +1,5 @@
 """
-Overpass OpenStreetMap API to get all petanque (boules) courts.
+Overpass OpenStreetMap API to get all petanque (boules) terrain.
 See https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide for the overpass API guide.
 See https://github.com/mvexel/overpass-api-python-wrapper for the Python wrapper.
 """
@@ -9,7 +9,7 @@ import overpass
 api = overpass.API(timeout=25)
 
 
-def get_courts_utrecht(responseformat='json'):
+def get_terrains_utrecht(responseformat='json'):
     query = '''(
         node["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
         way["sport"="boules"](51.96203858429277,4.985389709472656,52.22296240972006,5.261421203613281);
@@ -19,7 +19,7 @@ def get_courts_utrecht(responseformat='json'):
     return api.get(query, responseformat=responseformat, verbosity='center')  # use verbosity = geom to get way geometry in geojson
 
 
-def get_courts_nl(responseformat='json'):
+def get_terrains_nl(responseformat='json'):
     query = '''
     (area(3602323309);)->.searchArea;
     (

@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from courts import overpass
+from terrain import overpass
 
 
 class Command(BaseCommand):

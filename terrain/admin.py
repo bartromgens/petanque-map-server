@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from courts.models import Court
+from terrain.models import Terrain
 
-class CourtAdmin(admin.ModelAdmin):
+class TerrainAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'osm_id',
@@ -12,4 +12,4 @@ class CourtAdmin(admin.ModelAdmin):
         'lat',
     )
 
-admin.site.register(Court, CourtAdmin)
+admin.site.register(Terrain, TerrainAdmin)

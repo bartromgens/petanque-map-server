@@ -37,7 +37,7 @@ class BackupDaily(CronJobBase):
                 '--all',
                 '--natural-foreign',
                 'api',
-                'courts',
+                'terrain',
                 stdout=fileout
             )
         with open(filepath, 'rb') as f_in:

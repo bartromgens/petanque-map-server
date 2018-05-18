@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Court(models.Model):
+class Terrain(models.Model):
     osm_id = models.IntegerField(unique=True, null=False)
     osm_type = models.CharField(max_length=250, null=False, default='')
     lon = models.FloatField(null=False, default=0.0)
