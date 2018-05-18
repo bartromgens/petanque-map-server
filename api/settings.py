@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'registration',
     'dbbackup',
+    'corsheaders',
     'django_cron',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +45,8 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'corsheaders.middleware.CorsMiddleware',
+                'django.middleware.common.CommonMiddleware',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.template.context_processors.static',
