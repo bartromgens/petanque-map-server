@@ -99,6 +99,9 @@ AUTHENTICATION_BACKENDS = ['django-dual-authentication.backends.DualAuthenticati
 # You can authenticate your users by 'username', 'email', 'both'. Default: 'both'.
 AUTHENTICATION_METHOD = 'both'
 
+# corsheaders
+CORS_ORIGIN_ALLOW_ALL = True
+
 # django-rest-framework
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
