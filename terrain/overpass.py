@@ -4,9 +4,48 @@ See https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide for the over
 See https://github.com/mvexel/overpass-api-python-wrapper for the Python wrapper.
 """
 import requests
+import time
 
 import overpass
 api = overpass.API(timeout=25)
+
+
+def get_terrains_world(responseformat='json'):
+    stepsize = 4.0
+    lon_begin = -180
+    lon_end = 180
+    lat_begin = -90
+    lat_end = 90
+    responses = []
+    lon_current = lon_begin
+    while lon_current < lon_end:
+        lat_current = lat_begin
+        while lat_current < lat_end:
+            coordinate_str = '{},{},{},{}'.format(
+                lat_current, lon_current, lat_current + stepsize, lon_current + stepsize
+            )
+            query = '''
+            (
+                node["sport" = "boules"]({});
+                way["sport" = "boules"]({});
+            )
+            '''.format(coordinate_str, coordinate_str)
+            print(query)
+            start_time = time.time()
+            try:
+                response = api.get(query, responseformat=responseformat, verbosity='center')
+            except (overpass.errors.MultipleRequestsError, overpass.errors.ServerLoadError) as error:
+                print(error)
+                time.sleep(30)
+                response = api.get(query, responseformat=responseformat, verbosity='center')
+            response_time = time.time() - start_time
+            print('response time: ' + str(response_time), 'seconds')
+            responses.append(response)
+            lat_current += stepsize
+            time.sleep(response_time * 2)
+        lon_current += stepsize
+    print('responses', str(len(responses)))
+    return responses
 
 
 def get_terrains_utrecht(responseformat='json'):
