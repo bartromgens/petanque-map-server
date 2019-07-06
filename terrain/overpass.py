@@ -7,7 +7,7 @@ import requests
 import time
 
 import overpass
-api = overpass.API(timeout=25)
+api = overpass.API(timeout=60)
 
 
 def get_terrains_world(responseformat='json'):
