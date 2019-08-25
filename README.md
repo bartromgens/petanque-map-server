@@ -47,6 +47,13 @@ Create a database (default is sqlite),
 python manage.py migrate
 ```
 
+## CronJob
+
+Add a cron job to update the petanque terrains from OSM at regular intervals,
+```
+30 4 * * * /<path-to-env>/bin/python /<path-to-petanque-map-server>/manage.py update_terrains > /<path-to-petanque-map-server>/log/cronjob.log
+```
+
 #### Create a superuser (optional)
 This allows you to login at the website as superuser and view the admin page,
 ```
