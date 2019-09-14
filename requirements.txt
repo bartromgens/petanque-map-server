@@ -6,4 +6,5 @@ django-dual-authentication==1.0
 django-cron==0.5.1
 django-dbbackup==3.2.0
 overpass==0.6.1
+easy-thumbnails==2.6.0
 django-debug-toolbar

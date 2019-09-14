@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'registration',
     'dbbackup',
     'corsheaders',
+    'easy_thumbnails',
     'django_cron',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -95,9 +96,9 @@ LOGIN_REDIRECT_URL = '/'
 
 
 # django-dual-authentication
-AUTHENTICATION_BACKENDS = ['django-dual-authentication.backends.DualAuthentication']
+# AUTHENTICATION_BACKENDS = ['django-dual-authentication.backends.DualAuthentication']
 # You can authenticate your users by 'username', 'email', 'both'. Default: 'both'.
-AUTHENTICATION_METHOD = 'both'
+# AUTHENTICATION_METHOD = 'both'
 
 # corsheaders
 CORS_ORIGIN_ALLOW_ALL = True
@@ -110,6 +111,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# # easy-thumbnails
+# THUMBNAIL_ALIASES = {
+#     '': {
+#         '50px': {'size': (50, 50), 'crop': False},
+#         '200px': {'size': (200, 200), 'crop': False},
+#         '500px': {'size': (500, 500), 'crop': False},
+#         '1000px': {'size': (1000, 1000), 'crop': False},
+#     },
+# }
 
 # Local settings
 # Allow any settings to be defined in local_settings.py which should be

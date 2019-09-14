@@ -10,3 +10,22 @@ class Terrain(models.Model):
     @property
     def osm_url(self):
         return 'https://www.openstreetmap.org/' + str(self.osm_type) + '/' + str(self.osm_id)
+
+    def __html__(self):
+        return '{} - {}'.format(self.id, self.osm_id)
+
+
+class TerrainImage(models.Model):
+    terrain = models.ForeignKey(Terrain, on_delete=models.CASCADE, related_name="images")
+    file = models.FileField(blank=False, null=False)
+
+    def __html__(self):
+        return self.file.name
+
+
+class TerrainRating(models.Model):
+    terrain = models.ForeignKey(Terrain, on_delete=models.CASCADE, related_name="ratings")
+    rating = models.IntegerField(blank=True, null=True)
+
+    def __html__(self):
+        return self.rating
