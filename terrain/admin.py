@@ -14,6 +14,7 @@ class TerrainAdmin(admin.ModelAdmin):
         'lon',
         'lat',
     )
+    search_fields = ['id', 'osm_id']
 
 
 class TerrainImageAdmin(admin.ModelAdmin):
